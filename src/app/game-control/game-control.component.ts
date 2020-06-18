@@ -10,9 +10,7 @@ export class GameControlComponent implements OnInit {
   ref;
   sec: number = 1;
   secondsArray: number[] = [];
-
   
-
   constructor() {
     console.log(this.sec);
    }
