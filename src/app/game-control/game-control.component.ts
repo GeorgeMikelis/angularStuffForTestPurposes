@@ -10,10 +10,9 @@ export class GameControlComponent implements OnInit {
   ref;
   sec: number = 1;
   secondsArray: number[] = [];
-  
+
   constructor() {
-    console.log(this.sec);
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -26,8 +25,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onGameStarted() {
-    this.ref = setInterval(this.secondsPassed, 1000);
-    console.log(this.ref);
+    this.ref = setInterval(() => {this.secondsPassed()}, 1000);
   }
 
   onGameStoped() {
