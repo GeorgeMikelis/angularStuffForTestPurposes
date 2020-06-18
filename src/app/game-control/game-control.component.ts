@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-game-control',
@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-
+  disableStartButton: boolean = false;
+  disableStopButton: boolean =true;
   ref;
-  sec: number = 1;
+  sec: number = 0;
   secondsArray: number[] = [];
 
   constructor() {
@@ -18,6 +19,8 @@ export class GameControlComponent implements OnInit {
   }
 
   secondsPassed() {
+    this.disableStartButton = true;
+    this.disableStopButton = false;
     this.sec++;
     this.secondsArray.push(this.sec);
     console.log(this.sec);
@@ -29,7 +32,9 @@ export class GameControlComponent implements OnInit {
   }
 
   onGameStoped() {
-
+    clearInterval(this.ref)
+    this.disableStartButton = false;
+    this.disableStopButton = true;
   }
 
 }
