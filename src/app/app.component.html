@@ -15,4 +15,11 @@
     </div>
   </div>
   <app-game-control (newEvenNumberGenerated)="onEvenNumber($event)" (newOddNumberGenerated)="onOddNumber($event)"></app-game-control>
+  <hr>
+  <app-odd
+  *ngFor="let oddNumber of oddNumbers"
+  [oddNumber]="oddNumber"></app-odd>
+  <app-even 
+  *ngFor="let evenNumber of evenNumbers"
+  [evenNumber]="evenNumber"></app-even>
 </div>

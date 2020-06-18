@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   evenNumbers: number[] = [];
   oddNumbers: number[] = [];
 
@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   onOddNumber(oddNumber: number) {
-    this.evenNumbers.push(oddNumber);
+    this.oddNumbers.push(oddNumber);
     console.log("from the app.component, this number is odd:" +  oddNumber)
   }
 }
