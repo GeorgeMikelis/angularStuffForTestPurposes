@@ -14,5 +14,5 @@
       </ol>
     </div>
   </div>
-  <app-game-control></app-game-control>
+  <app-game-control (newEvenNumberGenerated)="onEvenNumber($event)" (newOddNumberGenerated)="onOddNumber($event)"></app-game-control>
 </div>

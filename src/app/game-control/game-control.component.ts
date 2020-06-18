@@ -8,9 +8,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class GameControlComponent implements OnInit {
   disableStartButton: boolean = false;
   disableStopButton: boolean =true;
-  ref;
+  ref: any;
   sec: number = 0;
   secondsArray: number[] = [];
+  @Output() newEvenNumberGenerated = new EventEmitter<number>();
+  @Output() newOddNumberGenerated = new EventEmitter<number>();
 
   constructor() {
   }
@@ -23,6 +25,12 @@ export class GameControlComponent implements OnInit {
     this.disableStopButton = false;
     this.sec++;
     this.secondsArray.push(this.sec);
+    if(this.sec % 2 === 0) {
+      this.newEvenNumberGenerated.emit(this.sec);
+    }
+    if(this.sec % 2 !== 0) {
+      this.newOddNumberGenerated.emit(this.sec);
+    }
     console.log(this.sec);
     console.log(this.secondsArray);
   }
